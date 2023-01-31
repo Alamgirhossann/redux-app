@@ -1,25 +1,25 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
-
-function App() {
+import { incNumber, decNumber } from "./action/index";
+import {useSelector, useDispatch} from 'react-redux'
+import SearchResultNotFount from './SearchResultNotFount/SearchResultNotFount';
+const App = () => {
+  const myState = useSelector((state)=>state.changeNumber)
+  const dispatch = useDispatch();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <SearchResultNotFount/>
+      {/* <div className="container">
+        <h1 className='text-center'>Increment and decrement</h1>
+        <h4 className='text-center'>with redux state management</h4>
+        <div style={{ height: "100%", width: "100%", display:"flex", justifyContent: "center", alignItems: "center" }}>
+            <input onClick={()=>dispatch(decNumber())} type="button" value="-"/>
+            <input type="text"value={myState}/>
+            <input onClick={()=>dispatch(incNumber())} type="button" value="+"/>
+          </div>
+      </div> */}
+    </>
   );
-}
+};
 
 export default App;
